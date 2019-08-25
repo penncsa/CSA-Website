@@ -83,6 +83,8 @@ class Home extends React.Component{
            <button id="listserv-btn">Join Our Mailing List</button>
            <FontAwesomeIcon id="instagram" icon={faInstagram} href = 'https://www.instagram.com/upenncsa/'/>
            <FontAwesomeIcon id="facebook" icon={faFacebook} href = 'https://www.facebook.com/penn.csa/'/>
+           <a href="https://www.facebook.com/penn.csa/"> <i class="fa fa-dribbble fa-4x"></i></a>
+           <i class="btn btn-light fa fa-facebook-square fa-4x" href="#"></i>
 
            <div class="container">
              <div class="chevron"></div>
