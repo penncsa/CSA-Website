@@ -98,7 +98,7 @@ class Events extends React.Component{
   render() {
     return (
       <div className="events-section" id="events">
-        <h1>Events</h1>
+        <h2>Events</h2>
       </div>
     );
   }

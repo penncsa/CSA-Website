@@ -65,7 +65,8 @@
 }
 
 .events-section {
-  height: 100vh;
+  padding: 50px;
+  height: 150vh;
   /*background-color: #B0413E;*/
   background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
 }
