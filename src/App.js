@@ -81,8 +81,8 @@ class Home extends React.Component{
            trips, study breaks, and more.  </p>
 
            <button id="listserv-btn">Join Our Mailing List</button>
-           <FontAwesomeIcon id="instagram" icon={faInstagram}/>
-           <FontAwesomeIcon id="facebook" icon={faFacebook} />
+           <FontAwesomeIcon id="instagram" icon={faInstagram} href = 'https://www.instagram.com/upenncsa/'/>
+           <FontAwesomeIcon id="facebook" icon={faFacebook} href = 'https://www.facebook.com/penn.csa/'/>
 
            <div class="container">
              <div class="chevron"></div>
