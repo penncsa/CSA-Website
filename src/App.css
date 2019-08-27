@@ -8,6 +8,7 @@
 
 .navbar {
   position: fixed;
+  z-index: 1;
   top: 15px;
   width: 100%;
   text-align: right;
@@ -32,10 +33,9 @@
 }
 
 .home-section {
-  padding-left: 50px;
+  padding: 50px;
   padding-top: 70px;
-  height: 100vh;
-  /*background-color: #880D1E;*/
+  min-height: 100vh;
   background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 }
 
@@ -45,13 +45,23 @@
 }
 
 #instagram, #facebook {
+  display: inline-block;
   font-size: 1.3em;
   margin-left: 25px;
+}
+
+#instagram:hover, #facebook:hover {
+  cursor: pointer;
 }
 
 .mission {
   margin-top: 20px;
   width: 45%;
+}
+
+#csa {
+  width: 50%;
+  float: right;
 }
 
 #listserv-btn {
@@ -66,21 +76,26 @@
 
 .events-section {
   padding: 50px;
-  height: 150vh;
-  /*background-color: #B0413E;*/
+  min-height: 100vh;
   background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
 }
 
-#board-title {
+#events-title, #board-title {
   margin: 10px 0px;
-  width: 20%;
+  width: 15%;
+}
+
+#events-title {
+  margin-bottom: 20px;
+}
+
+#welcome-week {
+  width: 100%;
 }
 
 .board-section {
   padding: 50px;
-  height: 150vh;
-  /*background-color: #FE4A49;*/
-  background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+  background-image: linear-gradient(to bottom, #dee4e9 0%, #dee4e9 1%, #e6dee9 100%);
 }
 
 .board-bios {
@@ -89,44 +104,65 @@
 
 .card {
   margin: 15px 1%;
+  padding-bottom: 15px;
   float: left;
   width: 18%;
   text-align: center;
-  background-color: rgba(255, 255, 255, .15);  
-  box-shadow: 0 3px 5px -2px #CAA2C0;
+  background-color: rgba(255, 255, 255, .5);  
+  box-shadow: 0 3px 5px -2px #c1c7cc;
+  transition: all 0.8s ease;
 }
 
 .card-img {
   position: relative;
   float: left;
   width: 100%;
+  margin-bottom: 10px;
 }
 
-.board-bio {
-  margin-bottom: 25px;
+.bio-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 0.85em;
+  border: none;
+  color: white;
+  background-color: #313131;
+  cursor: pointer;
+  box-shadow: 0 3px 5px -2px #838383;
+}
+
+#coffee-chat {
+  width: 100%;
+  text-align: center;
 }
 
 .fg-section {
-  height: 100vh;
-  /*background-color: #FF8C42;*/
-  background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  padding: 50px;
+  min-height: 100vh;
+  background-image: linear-gradient(90deg, #f9c6c8 0%, #f9dad1 99%, #f9dad1 100%);
+}
+
+#fg-title {
+  margin: 10px 0px;
+  width: 30%;
 }
 
 .merch-section {
   height: 100vh;
-  /*background-color: #F7AA59;*/
   background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .footer-section {
   height: 150px;
-  background-color: lightgray;
+  background-image: linear-gradient(90deg, #f9c6c8 0%, #f9dad1 99%, #f9dad1 100%);
+  box-shadow: 0 3px 5px -2px #c1c7cc;
+  text-align: center;
 }
 
 
 .container {
   position: relative;
-  margin: 50px auto;
+  margin: 30px auto;
   width: 24px;
   height: 24px;
 }
@@ -192,4 +228,132 @@
   to {
     opacity: 1;
   }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+.modal-main {
+  padding: 20px;
+  position:fixed;
+  background: white;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.close-btn-wrapper {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.close-btn {
+  padding: 5px 10px;
+  font-size: 0.85em;
+  border: none;
+  color: white;
+  background-color: #313131;
+  cursor: pointer;
+  box-shadow: 0 3px 5px -2px #838383;
+}
+
+#fg-wrapper {
+  display: inline-block;
+  width: 100%;
+}
+
+#fg-title {
+  float: left;
+  width: 35%;
+}
+
+#fg-title-wrapper {
+  width: 100%;
+}
+
+#fg-card-wrapper {
+  float: left;
+  width: 65%;
+  margin-top: 10px;
+}
+
+.fg-card {
+  margin-top: 20px;
+  float: left;
+  height: 50px;
+  width: 22%;
+  text-align: center;
+  font-size: 0.9em;
+  margin-right: 3%;
+}
+
+.fg-card p {
+  background-color: #313131;
+  color: white;
+  padding: 10px;
+}
+
+.form {
+  margin-top: 10px;
+  float: right;
+  padding: 20px 30px;
+  width: 25%;
+  background-color: white;
+  font-size: 0.9em;
+  box-shadow: 0 3px 5px -2px #989898;
+}
+
+.form p {
+  color: #313131;
+}
+
+.form input {
+  background-color: white;
+  border: 1px solid #989898;
+  width: 100%;
+  height: 30px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+#fg-btn {
+  padding: 5px 10px;
+  font-size: 1em;
+  border: none;
+  color: white;
+  background-color: #313131;
+  cursor: pointer;
+  box-shadow: 0 3px 5px -2px #838383;
+  margin-bottom: 10px;
+}
+
+#fg-pic {
+  width: 100%;
+  margin: 0 auto;
+  margin-left: -15px;
+}
+
+#contact-us {
+  margin-bottom: 30px;
 }
