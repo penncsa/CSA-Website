@@ -24,6 +24,7 @@
   padding: 5px 15px;
   display: inline;
   transition: 0.2s;
+  background-color: rgba(255, 255, 255, 1);  
 }
 
 .navbtn:hover {
@@ -147,11 +148,6 @@
   width: 30%;
 }
 
-.merch-section {
-  height: 100vh;
-  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
 .footer-section {
   height: 150px;
   background-image: linear-gradient(90deg, #f9c6c8 0%, #f9dad1 99%, #f9dad1 100%);
@@ -236,18 +232,23 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
 .modal-main {
-  padding: 20px;
+  width: 30%;
+  padding: 30px;
   position:fixed;
   background: white;
   height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+}
+
+.modal-main h2 {
+  margin-bottom: 10px;
 }
 
 .display-block {
@@ -260,7 +261,8 @@
 
 .close-btn-wrapper {
   width: 100%;
-  margin-top: 15px;
+  margin-top: 25px;
+  text-align: center;
 }
 
 .close-btn {
