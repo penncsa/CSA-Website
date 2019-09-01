@@ -55,14 +55,14 @@ class App extends React.Component {
   render() {
     return (
       <html>
+        <head>
+        </head>
         <body>
           <div className="App">
             <NavBar />
             <Home />
             <Events />
-            <Board 
-              data={this.state.post}
-            />
+            <Board data={this.state.post}/>
             <FamilyGroups />
             <Footer />
           </div>
@@ -76,10 +76,10 @@ class NavBar extends React.Component{
   render() {
     return (
       <div className="navbar">
-        <NavBtn text="Home" destination="home" />
-        <NavBtn text="Events" destination="events" />
-        <NavBtn text="Board" destination="board" />
-        <NavBtn text="Family Groups" destination="fg" />
+        <NavBtn text="Home" destination="home"/>
+        <NavBtn text="Events" destination="events"/>
+        <NavBtn text="Board" destination="board"/>
+        <NavBtn text="Family Groups" destination="fg"/>
       </div>
     );
   }
@@ -89,12 +89,13 @@ class NavBtn extends React.Component {
   render() {
     return (
       <Link className="navbtn"
-      activeClass="active"
-      to={this.props.destination}
-      spy={true}
-      smooth={true}
-      duration={500}
-    >{this.props.text}</Link>
+            activeClass="active"
+            to={this.props.destination}
+            spy={true}
+            smooth={true}
+            duration={500}>
+        {this.props.text}
+      </Link>
     );
   }
 }
@@ -103,42 +104,42 @@ class Home extends React.Component{
   render() {
     return (
       <div className="home-section" id="home">
-
-         <img id="csa" src={CSA}></img>
-
+        <img id="csa" src={CSA}></img>
         <h2>Welcome to</h2>
         <img id="penn-csa" src={PennCSA}></img>
         <p className="mission">The Chinese Students' Association (CSA) is a <b>social, cultural,
            and political organization</b> that aims to promote Chinese and 
-           Chinese-American affairs to the Penn community.</p>
-           
-           <p className="mission">CSA exists to 
+           Chinese-American affairs to the Penn community.
+        </p>
+        <p className="mission">CSA exists to 
            create a network of individuals interested in these affairs and 
            provide a way for <b>all people</b> to learn more about Chinese and 
            Chinese-American culture, history, food, and news while creating a 
-           network with a multifaceted family of members.</p>
-           
-           <p className="mission">
+           network with a multifaceted family of members.
+        </p>
+        <p className="mission">
            To carry out our 
            mission, CSA holds numerous events including our annual cultural 
            show production, holiday festivals, speaker events, food events, 
-           trips, study breaks, and more.  </p>
-
-           <div className="connect">
-             <button id="listserv-btn">Join Our Mailing List</button>
-             <a href="https://www.instagram.com/upenncsa/" target="_blank">
-               <div id="instagram"><FontAwesomeIcon icon={faInstagram}/></div>
-             </a>
-             <a href="https://www.facebook.com/penn.csa/" target="_blank">
-               <div id="facebook"><FontAwesomeIcon icon={faFacebook} /></div>
-             </a>
-           </div>
-
-           <div className="container">
-             <div className="chevron"></div>
-             <div className="chevron"></div>
-             <div className="chevron"></div>
-           </div>
+           trips, study breaks, and more.  
+        </p>
+        <img id="csa-mobile" src={CSA}></img>
+        <div className="connect">
+          <a href="http://eepurl.com/tX5_j" target="_blank">
+            <button id="listserv-btn">Join Our Mailing List</button>
+          </a>
+          <a href="https://www.instagram.com/upenncsa/" target="_blank">
+            <div id="instagram"><FontAwesomeIcon icon={faInstagram}/></div>
+          </a>
+          <a href="https://www.facebook.com/penn.csa/" target="_blank">
+            <div id="facebook"><FontAwesomeIcon icon={faFacebook} /></div>
+          </a>
+        </div>
+        <div className="container">
+          <div className="chevron"></div>
+          <div className="chevron"></div>
+          <div className="chevron"></div>
+        </div>
       </div>
     );
   }
@@ -150,7 +151,6 @@ class Events extends React.Component{
       <div className="events-section" id="events">
         <img id="events-title" src={EventsImg}></img>
         <img id="welcome-week" src={WelcomeWeek}></img>
-
         <div className="container">
           <div className="chevron"></div>
           <div className="chevron"></div>
@@ -174,7 +174,7 @@ class Board extends React.Component{
           <p>Want to learn more about joining board?</p>
           <p><u>Reach out for a coffee chat</u>.</p>
         </div>
-
+        
         <div className="container">
             <div className="chevron"></div>
              <div className="chevron"></div>
@@ -209,7 +209,6 @@ class Card extends React.Component {
             <button className="bio-btn" onClick={() => this.getModal(data)}>About {data.name}</button>
       </div>
         </div>))}
-
         <Bio
           show={this.state.showModal}
           onHide={this.hideModal}
@@ -256,7 +255,7 @@ class FamilyGroups extends React.Component{
         
       <div id="fg-wrapper">
       <div id="fg-card-wrapper">
-        <p>Family groups are the Hogwarts houses of CSA, each comprised
+        <p id="fg-summary">Family groups are the Hogwarts houses of CSA, each comprised
            of members with similar interests and headed by 3 to 4 CSA board members.
            They are a great way to get to know more
             people, form a small circle of close-knit friends, and become a mentor/mentee to a big/little.
@@ -274,13 +273,14 @@ class FamilyGroups extends React.Component{
         <div className="fg-card">
           <p>Sassy Springrolls</p>
         </div>
-        
-        <img id="fg-pic" src={FG}></img>
 
+        <img id="fg-pic" src={FG}></img>
       </div>
-        <div id="fg-sign-up">
-        </div>
+
+        <div>
         <Form />
+        </div>
+
       </div>
       </div>
     );
@@ -328,6 +328,7 @@ class Form extends React.Component{
   render() {
     return (
       
+      <div className="form-wrapper">
       <div className="form">
         <h3>Sign Up to Join a Family Group</h3>
       <form method="POST" action="https://formspree.io/penncsaboard@gmail.com">
@@ -378,6 +379,7 @@ class Form extends React.Component{
         <br />
         <button type="submit" value="Send" id="fg-btn" onClick={e => this.onSubmit(e)}>Submit</button>
       </form>
+      </div>
       </div>
     )
   }

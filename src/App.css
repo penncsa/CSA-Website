@@ -24,7 +24,8 @@
   padding: 5px 15px;
   display: inline;
   transition: 0.2s;
-  background-color: rgba(255, 255, 255, 1);  
+  background-color: rgba(255, 255, 255, 1); 
+  box-shadow: 0 3px 5px -2px #838383; 
 }
 
 .navbtn:hover {
@@ -63,6 +64,12 @@
 #csa {
   width: 50%;
   float: right;
+}
+
+#csa-mobile {
+  width: 90%;
+  margin: 10px 5%;
+  display: none;
 }
 
 #listserv-btn {
@@ -333,10 +340,7 @@
   margin: auto;
   margin-bottom: 20px;
   margin-top: 5px;
-}
-
-form {
-  margin-top: 10px;
+  box-sizing: border-box;
 }
 
 #fg-btn {
@@ -358,4 +362,74 @@ form {
 
 #contact-us {
   margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 750px){
+  .card {
+    width: 80%;
+    margin: 15px 10%;
+  }
+
+  .mission {
+    width: 100%;
+  }
+
+  #csa {
+    display: none;
+  }
+
+  #csa-mobile {
+    display: initial;
+  }
+
+  #penn-csa {
+    width: 80%;
+  }
+
+  #board-title, #events-title {
+    width: 40%;
+  }
+
+  #fg-title {
+    width: 80%;
+  }
+
+  .modal-main {
+    width: 70%;
+  }
+
+  #fg-card-wrapper {
+    width: 100%;
+  }
+
+  #fg-summary {
+    margin-bottom: 10px;
+  }
+
+  .fg-card {
+    width: 45%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 10px;
+  }
+
+  #fg-pic {
+    width: 100%;
+    margin: 15px 0px;
+  }
+
+  .form-wrapper {
+    text-align: center;
+  }
+
+  .form {
+    display: inline-block;
+    width: 70%;
+    float: none;
+  }
+
+  .connect {
+    text-align: center;
+  }
+  
 }
