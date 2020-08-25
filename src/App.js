@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 import PennCSA from "./images/penncsa.png";
 import CSA from "./images/csa.png"
+import CSA_logo from "./images/logo.png"
 import BoardImg from "./images/board.png";
 import EventsImg from "./images/events.png";
 import FGImg from "./images/familygroups.png";
@@ -30,7 +31,19 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebook,  } from "@fortawesome/free-brands-svg-icons";
 
-class App extends React.Component {
+import Events_Card from './Events_Card';
+import ProfileCarousel from "./ProfileCarousel.js"
+
+// Load all images in './img/profiles' folder
+function importAll(r) {
+  return r.keys().map(r);
+}
+const about_images = importAll(require.context('./images/about_carousel', false, /\.(png|jpe?g|svg)$/));
+
+const PAST_EVENTS_ENDPOINT = "https://spreadsheets.google.com/feeds/cells/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/1/public/full?alt=json"
+const UPCOMING_EVENTS_ENDPOINT = "https://spreadsheets.google.com/feeds/cells/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/2/public/full?alt=json"
+
+class App extends Component {
 
   state = {
     post: [
@@ -72,7 +85,7 @@ class App extends React.Component {
   }
 }
 
-class NavBar extends React.Component{
+class NavBar extends Component{
   render() {
     return (
       <div className="navbar">
@@ -85,7 +98,7 @@ class NavBar extends React.Component{
   }
 }
 
-class NavBtn extends React.Component {
+class NavBtn extends Component {
   render() {
     return (
       <Link className="navbtn"
@@ -100,11 +113,14 @@ class NavBtn extends React.Component {
   }
 }
 
-class Home extends React.Component{
+class Home extends Component{
   render() {
     return (
       <div className="home-section" id="home">
-        <img id="csa" src={CSA}></img>
+        {/* <img id="csa" src={CSA}></img> */}
+        <div id="csa" className="fade-in-slow">
+          <ProfileCarousel images={about_images} />
+        </div>
         <h2>Welcome to</h2>
         <img id="penn-csa" src={PennCSA}></img>
         <p className="mission">The Chinese Students' Association (CSA) is a <b>social, cultural,
@@ -123,7 +139,9 @@ class Home extends React.Component{
            show production, holiday festivals, speaker events, food events, 
            trips, study breaks, and more.  
         </p>
-        <img id="csa-mobile" src={CSA}></img>
+        <div id="csa-mobile">
+          <ProfileCarousel images={about_images} />
+        </div>
         <div className="connect">
           <a href="http://eepurl.com/tX5_j" target="_blank">
             <button id="listserv-btn">Join Our Mailing List</button>
@@ -135,33 +153,51 @@ class Home extends React.Component{
             <div id="facebook"><FontAwesomeIcon icon={faFacebook} /></div>
           </a>
         </div>
-        <div className="container">
-          <div className="chevron"></div>
-          <div className="chevron"></div>
-          <div className="chevron"></div>
-        </div>
       </div>
     );
   }
 }
 
-class Events extends React.Component{
+
+
+class Events extends Component{
+  
+  state = {
+    past_events : [],
+    upcoming_events : []
+  };
+
+  
+
+  componentDidMount() {
+    fetch( PAST_EVENTS_ENDPOINT ) // 'http://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(data => eventParser(data.feed.entry))
+    .then((data) => {
+      this.setState({ past_events: data })
+    })
+    .catch(console.log)
+  }
+
+  
+  
   render() {
     return (
       <div className="events-section" id="events">
+
         <img id="events-title" src={EventsImg}></img>
-        <img id="welcome-week" src={WelcomeWeek}></img>
-        <div className="container">
+        <Events_Card events={this.state.past_events} />
+        {/* <div className="container">
           <div className="chevron"></div>
           <div className="chevron"></div>
           <div className="chevron"></div>
-        </div>
+        </div> */}
       </div>
     );
   }
 }
 
-class Board extends React.Component{
+class Board extends Component{
   render() {
     return (
       <div className="board-section" id="board">
@@ -175,17 +211,17 @@ class Board extends React.Component{
           <p><u>Reach out for a coffee chat</u>.</p>
         </div>
         
-        <div className="container">
+        {/* <div className="container">
             <div className="chevron"></div>
              <div className="chevron"></div>
              <div className="chevron"></div>
-           </div>
+           </div> */}
       </div>
     );
   }
 }
 
-class Card extends React.Component {
+class Card extends Component {
   state={
     showModal: false,
     dataModal: {
@@ -207,7 +243,7 @@ class Card extends React.Component {
             <h4>{data.name} {data.lastname}</h4>
             <h5>{data.position}</h5>
             <button className="bio-btn" onClick={() => this.getModal(data)}>About {data.name}</button>
-      </div>
+          </div>
         </div>))}
         <Bio
           show={this.state.showModal}
@@ -221,14 +257,14 @@ class Card extends React.Component {
   };
 }
 
-class Bio extends React.Component {
+class Bio extends Component {
   render() {
       return (
      <div className="bio">
         <React.Fragment>
         {this.props.show && (
           <div className="modal">
-          <div className="modal-main">
+          <div className="modal-main fade-in">
             <h2>{this.props.name} {this.props.lastname}</h2>
             <p>{this.props.bio}</p>
             <div className="close-btn-wrapper">
@@ -245,7 +281,7 @@ class Bio extends React.Component {
     };
   }
 
-class FamilyGroups extends React.Component{
+class FamilyGroups extends Component{
   render() {
     return (
       <div className="fg-section" id="fg">
@@ -287,7 +323,7 @@ class FamilyGroups extends React.Component{
   }
 }
 
-class Footer extends React.Component {
+class Footer extends Component {
   render() {
     return (
       <div className="footer-section">
@@ -305,7 +341,7 @@ class Footer extends React.Component {
   }
 }
 
-class Form extends React.Component{
+class Form extends Component{
   state = {
     name: '',
     email: '',
@@ -385,3 +421,39 @@ class Form extends React.Component{
   }
 }
 export default App; 
+
+
+
+function eventParser(cells){
+  var i;
+  var new_events = []
+  var curr_event = {}
+  var last_row = 1
+  for (i = 0; i < cells.length; i++) {
+    var current_row = cells[i].gs$cell.row
+    var current_col = cells[i].gs$cell.col 
+    var current_val = cells[i].gs$cell.inputValue
+    if (current_row != last_row) { 
+      // new event 
+      new_events.push(curr_event)
+      curr_event = {}
+      last_row = current_row
+    }
+    // depending on col, set the key of the column
+    if (current_col == 1) { 
+      curr_event['title'] = current_val
+    } else if (current_col == 2) {
+      curr_event['date'] = current_val
+    } else if (current_col == 3) {
+      curr_event['description'] = current_val
+    } else if (current_col == 4) { 
+      curr_event['image'] = current_val
+    }
+
+    if (i == cells.length - 1){ 
+      new_events.push(curr_event)
+    }
+  }
+  new_events.shift()
+  return new_events
+}
