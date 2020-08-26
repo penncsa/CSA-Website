@@ -26,6 +26,15 @@ const UPCOMING_EVENTS_ENDPOINT = "https://spreadsheets.google.com/feeds/cells/18
 const BOARD_BIOS_ENDPOINT = "https://spreadsheets.google.com/feeds/cells/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/3/public/full?alt=json"
 
 class App extends Component {
+
+  images = {}
+
+  componentDidMount() {
+    
+    this.images['about'] = importAll(require.context('./images/about', false, /\.(png|jpe?g|svg|JPG)$/))
+    console.log("IMAGES", this.images)
+  }
+
   render() {
     return (
       <html>
@@ -35,8 +44,8 @@ class App extends Component {
           <div className="App">
             <img id="logo" src={CSA_logo}></img>
             <NavBar />
-            <Home />
-            <Events />
+            <Home images={this.images}/>
+            <Events images={this.images}/>
             <FamilyGroups />
             <Board/>
             <Footer />
@@ -141,6 +150,15 @@ class Events extends Component{
       this.setState({ past_events: data })
     })
     .catch(console.log)
+
+    fetch( UPCOMING_EVENTS_ENDPOINT ) // 'http://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(data => eventParser(data.feed.entry))
+    .then((data) => {
+      this.setState({ upcoming_events: data })
+    })
+    .catch(console.log)
+
   }
 
   
@@ -150,9 +168,11 @@ class Events extends Component{
       <div className="events section" id="events">
         {/* <h1>Up Coming</h1>
         <Events_Card events={this.state.upcoming_events} /> */}
+        <h1>Upcoming Events</h1>
+        <EventCards data={this.state.upcoming_events} images={this.props.images} />
         <h1>Past Events</h1>
           {/* <Events_Card events={this.state.past_events} /> */}
-          <EventCards data={this.state.past_events} />
+        <EventCards data={this.state.past_events} images={this.props.images} />
       </div>
     );
   }
@@ -173,12 +193,12 @@ class EventCards extends Component {
   }
   render() {
     return( 
-      <div>      
+      <div className="card-holder">      
         {this.props.data.map((data, key) => (<div key={key} className="small">
           <div className="card"  onClick={() => this.getModal(data)}>
             <img className="card-img" src={data.image}></img>
             {/* <div className="card-img"> 
-                                  <ProfileCarousel images={about_images} />
+                <ProfileCarousel images={this.props.images['about']} />
             </div> */}
             <h4>{data.title}</h4>
             <h5>{data.date}</h5>
@@ -345,7 +365,8 @@ class FamilyGroups extends Component{
             They are a great way to get to know more
               people, form a small circle of close-knit friends, and become a mentor/mentee to a big/little.
           </p>
-
+          <br></br>
+          <p>If you're interested in joining, <a href="https://docs.google.com/forms/d/e/1FAIpQLSeah440MJ1Q8pYqVVkCZsRO1jFxU3YChap263A5JO64iUWWCw/viewform">sign up here!</a></p> 
           <div className="fg-card">
             <p>Balling Baozi</p>
           </div>
