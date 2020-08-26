@@ -298,15 +298,17 @@ class BoardCards extends Component {
   }
   render() {
     return( 
-      <div>      
-        {this.props.data.map((data, key) => (<div key={key} className="small">
-          <div className="card"  onClick={() => this.getModal(data)}>
-            <img className="card-img" src={data.profile}></img>
-            <h4>{data.name}</h4>
-            <h5>{data.position}</h5>
-            {/* <button className="bio-btn">About {data.name}</button> */}
-          </div>
-        </div>))}
+      <div>
+        <div className="board-cards">      
+          {this.props.data.map((data, key) => (<div key={key} className="small">
+            <div className="card"  onClick={() => this.getModal(data)}>
+              <img className="card-img" src={data.profile}></img>
+              <h4>{data.name}</h4>
+              <h5>{data.position}</h5>
+              {/* <button className="bio-btn">About {data.name}</button> */}
+            </div>
+          </div>))}
+        </div>
         <Bio
           show={this.state.showModal}
           onHide={this.hideModal}
