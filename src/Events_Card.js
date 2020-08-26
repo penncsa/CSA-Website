@@ -5,7 +5,6 @@ import './App.css';
 const Events_Card = ({ events }) => {
   return (
     <div>
-      <center><h1>Contact List</h1></center>
       {events.map((event) => (
         <div className="card">
           <div className="card-body">
