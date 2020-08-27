@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Contributors (POC): 
+* Samuel Xu (CSA 2017-2020), samuelgxu@gmail.com
+* Christina Lu (CSA 2019-)
+
 ## Available Scripts
 
 ### `npm install`
