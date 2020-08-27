@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faFacebook} from "@fortawesome/free-brands-svg-icons";
+
 const PAST_EVENTS_ENDPOINT = "https://spreadsheets.google.com/feeds/cells/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/1/public/full?alt=json"
 const UPCOMING_EVENTS_ENDPOINT = "https://spreadsheets.google.com/feeds/cells/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/2/public/full?alt=json"
 
@@ -27,6 +30,8 @@ function eventParser(cells){
     } else if (current_col == 3) {
       curr_event['description'] = current_val
     } else if (current_col == 4) { 
+      curr_event['fb_url'] = current_val
+    } else if (current_col == 5) { 
       curr_event['image'] = current_val
     }
 
@@ -49,6 +54,7 @@ class Events extends Component{
     .then(res => res.json())
     .then(data => eventParser(data.feed.entry))
     .then((data) => {
+      data.reverse()
       this.setState({ past_events: data })
     })
     .catch(console.log)
@@ -129,6 +135,11 @@ class EventCard extends Component {
                   <button className="close-btn" onClick={this.props.onHide}>
                     Close
                   </button>
+                  {this.props.dataModal.fb_url &&
+                    <a href={this.props.dataModal.fb_url} target="_blank" rel="noopener noreferrer">
+                      <div id="facebook"><FontAwesomeIcon icon={faFacebook} /></div>
+                    </a>  
+                  } 
                 </div>
               </div>
             </div>

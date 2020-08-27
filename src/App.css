@@ -310,20 +310,25 @@ h1 {
 }
 
 .close-btn-wrapper {
-  margin: 5px;
-  text-align: center;
-  /* background-color: blue; */
+  margin-top: 5px;
+  justify-content: center;
+  direction: ltr;
+  display: flex;
+  
 
 }
 
 .close-btn {
   padding: 5px 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   font-size: 0.85em;
   border: none;
   color: white;
   background-color: #313131;
   cursor: pointer;
   box-shadow: 0 3px 5px -2px #838383;
+  border-radius: 8px;
 }
 
 #fg-wrapper {
