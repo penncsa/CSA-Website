@@ -123,8 +123,8 @@ class EventCard extends Component {
               <div className="modal-main fade-in">
                 <div className="modal-content">
                   <div className="modal-text">
-                    <h2>{this.props.dataModal.title}</h2>
-                    <p>{this.props.dataModal.date}</p>
+                    <h2 className="event-name">{this.props.dataModal.title}</h2>
+                    <p className="event-date">{this.props.dataModal.date}</p>
                     <p>{this.props.dataModal.description}</p>
                   </div>
                   <div className="modal-img" >
