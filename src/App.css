@@ -164,20 +164,10 @@ h1 {
  margin: 5px -10px;
 }
 
-
 .card-holder {
   display: flex;
-    /* background-color: #fff; */
-
   overflow-x: auto;
-  /* direction: rtl;   */
 }
-/* 
-.card-holder::-webkit-scrollbar {
-  display: none;
-  padding: 10px;
-  
-} */
 
 .board-cards {
   display: flex;
@@ -237,77 +227,6 @@ h1 {
   text-align: center;
 }
 
-/* 
-.container {
-  position: relative;
-  margin: 30px auto;
-  width: 24px;
-  height: 24px;
-}
-
-.chevron {
-  position: absolute;
-  width: 28px;
-  height: 8px;
-  opacity: 0;
-  transform: scale3d(0.5, 0.5, 0.5);
-  animation: move 3s ease-out infinite;
-}
-
-.chevron:first-child {
-  animation: move 3s ease-out 1s infinite;
-}
-
-.chevron:nth-child(2) {
-  animation: move 3s ease-out 2s infinite;
-}
-
-.chevron:before,
-.chevron:after {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 51%;
-  background: #fff;
-}
-
-.chevron:before {
-  left: 0;
-  transform: skew(0deg, 30deg);
-}
-
-.chevron:after {
-  right: 0;
-  width: 50%;
-  transform: skew(0deg, -30deg);
-}
-
-@keyframes move {
-  25% {
-    opacity: 1;
-
-  }
-  33% {
-    opacity: 1;
-    transform: translateY(30px);
-  }
-  67% {
-    opacity: 1;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
-  }
-}
-
-@keyframes pulse {
-  to {
-    opacity: 1;
-  }
-} */
-
 .modal {
   position: fixed;
   /* padding: 10px; */
@@ -336,7 +255,6 @@ h1 {
 }
 
 .modal-content {
-  /* background-color: red; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -347,18 +265,12 @@ h1 {
 .modal-img img{
   width: 300px;
   height: auto;
-  background-color: yellow;
 }
 
 .modal-text {
   max-width: 400px;
-  background-color: green;
   padding: 20px;
   text-align: left;
-}
-
-.modal-text > p {
-  /* line-height: 30px; */
 }
 
 .fade-in {
@@ -497,6 +409,16 @@ h1 {
   margin-bottom: 30px;
 }
 
+
+@media only screen and (max-width: 330px){
+  /* iphone 5 */
+  .navbtn {
+    font-size: 5px;
+    padding: 3px 8px;
+  }
+}
+
+
 @media only screen and (max-width: 375px){
   .modal-main {
     width: 80%;
@@ -536,6 +458,10 @@ h1 {
     width: 80%;
     margin: 15px 10%;
   } */
+
+  .navbtn {
+    font-size: 15px;
+  }
 
   #logo { 
     visibility: hidden;
