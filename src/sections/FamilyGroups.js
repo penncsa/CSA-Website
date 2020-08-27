@@ -12,7 +12,7 @@ class FamilyGroups extends Component{
                 people, form a small circle of close-knit friends, and become a mentor/mentee to a big/little.
             </p>
             <br></br>
-            <p>If you're interested in joining, <a href="https://docs.google.com/forms/d/e/1FAIpQLSeah440MJ1Q8pYqVVkCZsRO1jFxU3YChap263A5JO64iUWWCw/viewform">sign up here!</a></p> 
+            <p>If you're interested in joining, <a href="https://forms.gle/ez79tnQ83X4X3Sdc6">sign up here!</a></p> 
             <div className="fg-card">
               <p>Balling Baozi</p>
             </div>
