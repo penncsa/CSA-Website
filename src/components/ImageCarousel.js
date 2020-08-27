@@ -13,7 +13,7 @@ function createPictures(props){
     ))
   )
 }
-function ProfileCarousel(props) {
+function ImageCarousel(props) {
     return (
         <Carousel 
         showArrows={true} 
@@ -29,4 +29,4 @@ function ProfileCarousel(props) {
     
 }
 
-export default ProfileCarousel;
+export default ImageCarousel;
