@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import ImageCarousel from "../components/ImageCarousel.js"
 import SocialBtn from "../components/SocialBtn.js"
+import Links from "./Links.js"
 
 function importAll(r) {
   return r.keys().map(r);
@@ -15,6 +16,7 @@ class Home extends Component{
             <div className="home section" id="home">
                 <div id="csa" className="fade-in-slow">
                     <ImageCarousel images={about_images} />
+                    <Links />
                 </div>
                 <h4>Welcome to</h4>
                 <h1 id="title">Penn CSA</h1>
@@ -36,6 +38,7 @@ class Home extends Component{
                 </p>
                 <div id="csa-mobile">
                     <ImageCarousel images={about_images} />
+                    <Links />
                 </div>
                 <SocialBtn />          
             </div>

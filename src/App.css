@@ -52,6 +52,7 @@ h1 {
   transition: 0.2s;
   background-color: rgba(255, 255, 255, 1); 
   box-shadow: 0 3px 5px -2px #838383; 
+  text-decoration: none;
 }
 
 .navbtn:hover {
@@ -416,6 +417,17 @@ h1 {
   margin-bottom: 30px;
 }
 
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media only screen and (max-width: 960px){
+  .navbtn {
+    font-size: 12px;
+  }
+}
 
 @media only screen and (max-width: 330px){
   /* iphone 5 */
