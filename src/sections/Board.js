@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faFacebook} from "@fortawesome/free-brands-svg-icons";
 
 const BOARD_BIOS_ENDPOINT = "https://spreadsheets.google.com/feeds/cells/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/3/public/full?alt=json"
 
@@ -35,6 +37,10 @@ function bioParser(cells){
         } else if (current_col == 8) { 
             curr_event['position'] = current_val
         } else if (current_col == 9) { 
+            curr_event['fb_url'] = current_val
+        } else if (current_col == 10) { 
+            curr_event['ig_url'] = current_val
+        } else if (current_col == 11) { 
             curr_event['profile'] = current_val
         } 
     
@@ -139,6 +145,16 @@ class Bio extends Component {
                                     <button className="close-btn" onClick={this.props.onHide}>
                                         Close
                                     </button>
+                                    {this.props.dataModal.fb_url &&
+                                        <a href={this.props.dataModal.fb_url} target="_blank" rel="noopener noreferrer">
+                                            <div id="facebook"><FontAwesomeIcon icon={faFacebook} /></div>
+                                        </a>  
+                                    } 
+                                    {this.props.dataModal.ig_url &&
+                                        <a href={this.props.dataModal.fb_url} target="_blank" rel="noopener noreferrer">
+                                            <div id="instagram"><FontAwesomeIcon icon={faInstagram}/></div>
+                                        </a>  
+                                    } 
                                 </div>
                             </div>
                         </div>
