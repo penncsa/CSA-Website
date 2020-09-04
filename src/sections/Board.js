@@ -151,7 +151,7 @@ class Bio extends Component {
                                         </a>  
                                     } 
                                     {this.props.dataModal.ig_url &&
-                                        <a href={this.props.dataModal.fb_url} target="_blank" rel="noopener noreferrer">
+                                        <a href={this.props.dataModal.ig_url} target="_blank" rel="noopener noreferrer">
                                             <div id="instagram"><FontAwesomeIcon icon={faInstagram}/></div>
                                         </a>  
                                     } 
