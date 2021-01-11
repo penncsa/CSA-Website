@@ -3,6 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Contributors (POC): 
 * Samuel Xu (CSA 2017-2020), samuelgxu@gmail.com
 * Christina Lu (CSA 2019-)
+* Jimmy Ren (CSA 2019-)
 
 ## Available Scripts
 
