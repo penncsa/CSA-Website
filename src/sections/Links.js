@@ -1,96 +1,78 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faFacebook} from "@fortawesome/free-brands-svg-icons";
+const GOOGLE_SHEETS_API_KEY = process.env.REACT_APP_AUTH_TOKEN
+const LINK_ENDPOINT = `https://sheets.googleapis.com/v4/spreadsheets/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/values/links?alt=json&key=${GOOGLE_SHEETS_API_KEY}`
 
-const LINK_ENDPOINT = "https://spreadsheets.google.com/feeds/cells/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/4/public/full?alt=json"
+function linkParser(links) {
+  var i
+  var new_links = []
+  for (i = 0; i < links.length; i++) {
+    var curr_link = {}
 
+    curr_link['display'] = links[i][0]
+    curr_link['url'] = links[i][1]
 
-function linkParser(cells){
-  var i;
-  var new_events = []
-  var curr_event = {}
-  var last_row = 1
-  for (i = 0; i < cells.length; i++) {
-    var current_row = cells[i].gs$cell.row
-    var current_col = cells[i].gs$cell.col 
-    var current_val = cells[i].gs$cell.inputValue
-    if (current_row != last_row) { 
-      // new event 
-      new_events.push(curr_event)
-      curr_event = {}
-      last_row = current_row
-    }
-    // depending on col, set the key of the column
-    if (current_col == 1) { 
-      curr_event['display'] = current_val
-    } else if (current_col == 2) {
-      curr_event['url'] = current_val
-    } 
-
-    if (i == cells.length - 1){ 
-      new_events.push(curr_event)
-    }
+    new_links.push(curr_link)
   }
-  new_events.shift()
-  return new_events
+  new_links.shift()
+  return new_links
 }
-  
-class Links extends Component{
+
+class Links extends Component {
   state = {
-    links : []
-  };
+    links: [],
+  }
 
   componentDidMount() {
-    fetch( LINK_ENDPOINT )
-    .then(res => res.json())
-    .then(data => linkParser(data.feed.entry))
-    .then((data) => {
-      this.setState({ links: data })
-    })
-    .catch(console.log)
+    fetch(LINK_ENDPOINT)
+      .then((res) => res.json())
+      .then((data) => linkParser(data.values))
+      .then((data) => {
+        this.setState({ links: data })
+      })
+      .catch(console.log)
   }
 
   render() {
     return (
       <div>
-        {
-          this.state.links.length > 0 && 
+        {this.state.links.length > 0 && (
           <>
-            <h2 style={{margin : "10px"}}>Important Links</h2>
-            <LinkCollection data={this.state.links}/> 
+            <h2 style={{ margin: '10px' }}>Important Links</h2>
+            <LinkCollection data={this.state.links} />
           </>
-        }
+        )}
       </div>
-    );
+    )
   }
 }
 
 class LinkCollection extends Component {
-  state={
+  state = {
     showModal: false,
     dataModal: {
-      name: ""
-    }
-  } 
-  getModal = data => {
-    this.setState({showModal: true, dataModal: data});
+      name: '',
+    },
+  }
+  getModal = (data) => {
+    this.setState({ showModal: true, dataModal: data })
   }
   hideModal = () => {
-    this.setState({showModal: false});
+    this.setState({ showModal: false })
   }
   render() {
-    return( 
-      <div className="links">      
-        {this.props.data.map((data, key) => (<div key={key}>
-          <a className="navbtn" href={data.url} target="_blank">{data.display}</a>
-        </div>))}
+    return (
+      <div className='links'>
+        {this.props.data.map((data, key) => (
+          <div key={key}>
+            <a className='navbtn' href={data.url} target='_blank'>
+              {data.display}
+            </a>
+          </div>
+        ))}
       </div>
-    );
-  };
+    )
+  }
 }
 
-export default Links; 
-
-
-
+export default Links
