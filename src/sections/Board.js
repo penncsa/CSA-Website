@@ -48,7 +48,7 @@ class Board extends Component {
     return (
       <div className='board section' id='board'>
         <h1>Board</h1>
-        <p>Meet board #115! Click on our cards to learn more about us.</p>
+        <p>Meet board #116! Click on our cards to learn more about us.</p>
         <div className='board-bios'>
           <BioCollection data={this.state.bios} />
         </div>
