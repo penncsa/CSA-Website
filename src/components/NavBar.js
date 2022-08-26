@@ -11,7 +11,7 @@ class NavBar extends Component{
         <div className="slide-in">
             <NavBtn text="Home" destination="home"/>
             <NavBtn text="Events" destination="events"/>
-            <NavBtn text="Family Groups" destination="fg"/>
+            <NavBtn text="Big Little" destination="biglittle"/>
             <NavBtn text="Board" destination="board"/>
         </div>
       </div>

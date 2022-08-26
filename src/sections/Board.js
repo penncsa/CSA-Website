@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 const GOOGLE_SHEETS_API_KEY = process.env.REACT_APP_AUTH_TOKEN
-const BOARD_BIOS_ENDPOINT = `https://sheets.googleapis.com/v4/spreadsheets/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/values/board_bios?alt=json&key=${GOOGLE_SHEETS_API_KEY}`
+const BOARD_BIOS_ENDPOINT = `https://sheets.googleapis.com/v4/spreadsheets/1JFxst835z4w-xhz8y9x7y7cnrmeHvk3Fb1cNV7ncayQ/values/board_bios?alt=json&key=${GOOGLE_SHEETS_API_KEY}`
 
 function bioParser(bios) {
   var i

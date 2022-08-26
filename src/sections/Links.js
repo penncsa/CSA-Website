@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 const GOOGLE_SHEETS_API_KEY = process.env.REACT_APP_AUTH_TOKEN
-const LINK_ENDPOINT = `https://sheets.googleapis.com/v4/spreadsheets/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/values/links?alt=json&key=${GOOGLE_SHEETS_API_KEY}`
+const LINK_ENDPOINT = `https://sheets.googleapis.com/v4/spreadsheets/1JFxst835z4w-xhz8y9x7y7cnrmeHvk3Fb1cNV7ncayQ/values/links?alt=json&key=${GOOGLE_SHEETS_API_KEY}`
 
 function linkParser(links) {
   var i
