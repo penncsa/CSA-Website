@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 const GOOGLE_SHEETS_API_KEY = process.env.REACT_APP_AUTH_TOKEN
-const PAST_EVENTS_ENDPOINT = `https://sheets.googleapis.com/v4/spreadsheets/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/values/past_events?alt=json&key=${GOOGLE_SHEETS_API_KEY}`
-const UPCOMING_EVENTS_ENDPOINT = `https://sheets.googleapis.com/v4/spreadsheets/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/values/upcoming_events?alt=json&key=${GOOGLE_SHEETS_API_KEY}`
+const PAST_EVENTS_ENDPOINT = `https://sheets.googleapis.com/v4/spreadsheets/1JFxst835z4w-xhz8y9x7y7cnrmeHvk3Fb1cNV7ncayQ/values/past_events?alt=json&key=${GOOGLE_SHEETS_API_KEY}`
+const UPCOMING_EVENTS_ENDPOINT = `https://sheets.googleapis.com/v4/spreadsheets/1JFxst835z4w-xhz8y9x7y7cnrmeHvk3Fb1cNV7ncayQ/values/upcoming_events?alt=json&key=${GOOGLE_SHEETS_API_KEY}`
 
 function eventParser(events) {
   var i
@@ -37,7 +37,6 @@ class Events extends Component {
       .then((res) => res.json())
       .then((data) => eventParser(data.values))
       .then((data) => {
-        data.reverse()
         this.setState({ past_events: data })
       })
       .catch(console.log)
@@ -64,7 +63,7 @@ class Events extends Component {
         <EventCollection
           data={this.state.past_events}
           images={this.props.images}
-          direction='rtl'
+          direction='ltr'
         />
       </div>
     )

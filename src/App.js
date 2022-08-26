@@ -6,6 +6,7 @@ import NavBar from './components/NavBar.js'
 import Home from './sections/Home.js'
 import Events from './sections/Events.js'
 import FamilyGroups from './sections/FamilyGroups.js'
+import BigLittle from './sections/BigLittle';
 import Board from './sections/Board.js'
 import Footer from './sections/Footer.js'
 
@@ -20,7 +21,7 @@ class App extends Component {
             <NavBar />
             <Home/>
             <Events/>
-            <FamilyGroups />
+            <BigLittle />
             <Board/>
             <Footer />
           </div>
