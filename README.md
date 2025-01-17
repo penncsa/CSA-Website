@@ -33,7 +33,7 @@ This builds and pushes the environment to our production host via gh-pages (whic
 
 ## Google Spreadsheet Integration
 
-The of the content is fetched from [this Google Spreadshet](https://docs.google.com/spreadsheets/d/18w6c_IrhriRMUK4VRcFkQQ4bBEDSeQFT03O7_OSZ_Pw/edit?usp=sharing) which was publically exposed as a `GET` API. When you know the Google Sheet ID, you can insert it into the following and use it as the API Endpoint (and use page num 1-3 for the tabs):
+The of the content is fetched from [this Google Spreadshet](https://docs.google.com/spreadsheets/d/1ynEzX8p1P1wVxqVFl6Ksyf5g2jtqx_AMc-gnZAbv4E8/edit) which was publically exposed as a `GET` API. When you know the Google Sheet ID, you can insert it into the following and use it as the API Endpoint (and use page num 1-3 for the tabs):
 
 ```
 https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{page_title}?alt=json&key=${GOOGLE_SHEETS_API_KEY}
