@@ -5,6 +5,7 @@ Contributors (POC):
 - Samuel Xu (CSA 2017-2020), samuelgxu@gmail.com
 - Christina Lu (CSA 2019-2021), christina.lu.12@gmail.com
 - Jimmy Ren (CSA 2019-2021)
+- Evan Ping (CSA 2023-2026)
 
 ## Available Scripts
 
