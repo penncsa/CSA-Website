@@ -1,34 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.1361e2ea.chunk.css",
-    "main.js": "/static/js/main.f4f6a162.chunk.js",
-    "main.js.map": "/static/js/main.f4f6a162.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.83c3e0c4.js",
-    "runtime-main.js.map": "/static/js/runtime-main.83c3e0c4.js.map",
-    "static/css/2.c7661d7b.chunk.css": "/static/css/2.c7661d7b.chunk.css",
-    "static/js/2.ede098ef.chunk.js": "/static/js/2.ede098ef.chunk.js",
-    "static/js/2.ede098ef.chunk.js.map": "/static/js/2.ede098ef.chunk.js.map",
+    "main.css": "/static/css/main.4b195b2a.css",
+    "main.js": "/static/js/main.bd0798d0.js",
+    "static/media/1.cultural_show.JPG": "/static/media/1.cultural_show.8632644bdfd6530f2845.JPG",
+    "static/media/3.chinatown.JPG": "/static/media/3.chinatown.22d02d0bc5c829cb2084.JPG",
+    "static/media/6.dumpling_fest.png": "/static/media/6.dumpling_fest.cc2f8419d98b7fe54ef3.png",
+    "static/media/2.karaoke.JPG": "/static/media/2.karaoke.130b50d8c157173eba58.JPG",
+    "static/media/5.lines_landscapes.png": "/static/media/5.lines_landscapes.0972db420c3c6652940d.png",
+    "static/media/4.boat_formal.jpg": "/static/media/4.boat_formal.43d6ec9a9474dbcd4f13.jpg",
+    "static/media/fgpic.png": "/static/media/fgpic.c37f2485fbf77041cf03.png",
+    "static/media/big_little.png": "/static/media/big_little.fc3a785a67b762b515f5.png",
+    "static/media/logo.png": "/static/media/logo.d0acc11b398c5996bc6a.png",
     "index.html": "/index.html",
-    "precache-manifest.ac87bfc99ca9f29232b8a666a1d9c922.js": "/precache-manifest.ac87bfc99ca9f29232b8a666a1d9c922.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.c7661d7b.chunk.css.map": "/static/css/2.c7661d7b.chunk.css.map",
-    "static/css/main.1361e2ea.chunk.css.map": "/static/css/main.1361e2ea.chunk.css.map",
-    "static/js/2.ede098ef.chunk.js.LICENSE.txt": "/static/js/2.ede098ef.chunk.js.LICENSE.txt",
-    "static/media/1.cultural_show.JPG": "/static/media/1.cultural_show.5e927541.JPG",
-    "static/media/2.karaoke.JPG": "/static/media/2.karaoke.ac290cdf.JPG",
-    "static/media/3.chinatown.JPG": "/static/media/3.chinatown.183c59a2.JPG",
-    "static/media/4.boat_formal.jpg": "/static/media/4.boat_formal.97e1c42b.jpg",
-    "static/media/5.lines_landscapes.png": "/static/media/5.lines_landscapes.25352641.png",
-    "static/media/6.dumpling_fest.png": "/static/media/6.dumpling_fest.6944d265.png",
-    "static/media/big_little.png": "/static/media/big_little.ed1b9306.png",
-    "static/media/fgpic.png": "/static/media/fgpic.ca00fb80.png",
-    "static/media/logo.png": "/static/media/logo.599945cd.png"
+    "main.4b195b2a.css.map": "/static/css/main.4b195b2a.css.map",
+    "main.bd0798d0.js.map": "/static/js/main.bd0798d0.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.83c3e0c4.js",
-    "static/css/2.c7661d7b.chunk.css",
-    "static/js/2.ede098ef.chunk.js",
-    "static/css/main.1361e2ea.chunk.css",
-    "static/js/main.f4f6a162.chunk.js"
+    "static/css/main.4b195b2a.css",
+    "static/js/main.bd0798d0.js"
   ]
 }
