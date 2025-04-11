@@ -8,15 +8,11 @@
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.1.0",
-    "babel-preset-env": "^1.7.0",
-    "dotenv": "^10.0.0",
     "gh-pages": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-responsive-carousel": "^3.2.9",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.1",
     "yarn": "^1.22.4"
   },
@@ -44,6 +40,7 @@
     ]
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0"
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "postcss-normalize": "^13.0.1"
   }
 }
